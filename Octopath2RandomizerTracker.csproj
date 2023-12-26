@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="1.jpg" />
+    <None Remove="Images\Acta.png" />
+    <None Remove="Images\Agnea_Generic.png" />
+    <None Remove="Images\Apothecary_Hunter.png" />
+    <None Remove="Images\Castti_Generic.png" />
+    <None Remove="Images\Cleric_Thief.png" />
+    <None Remove="Images\Dancer_Warrior.png" />
+    <None Remove="Images\Glacis.png" />
+    <None Remove="Images\Hikari_Generic.png" />
+    <None Remove="Images\Inventor_Items\Beastling_Mythical_Horn.png" />
+    <None Remove="Images\Inventor_Items\Miner_Natural_Magnetite.png" />
+    <None Remove="Images\Inventor_Items\Worker_Ancient_Cog.png" />
+    <None Remove="Images\Inventor_Items\Worker_inventor_clockbank.png" />
+    <None Remove="Images\Jobs\Apothecary.png" />
+    <None Remove="Images\Jobs\Arcanist.png" />
+    <None Remove="Images\Jobs\Armsmaster.png" />
+    <None Remove="Images\Jobs\Cleric.png" />
+    <None Remove="Images\Jobs\Conjurer.png" />
+    <None Remove="Images\Jobs\Dancer.png" />
+    <None Remove="Images\Jobs\Hunter.png" />
+    <None Remove="Images\Jobs\Inventor.png" />
+    <None Remove="Images\Jobs\Merchant.png" />
+    <None Remove="Images\Jobs\Scholar.png" />
+    <None Remove="Images\Jobs\Thief.png" />
+    <None Remove="Images\Jobs\Warrior.png" />
+    <None Remove="Images\NPCs\Islander_Wooden_Sword_Agnea_3.png" />
+    <None Remove="Images\NPCs\Merchant_NPC_Hikari_3.png" />
+    <None Remove="Images\NPCs\Old_Man_Cute_Shoes_Agnea_4.png" />
+    <None Remove="Images\NPCs\Woman_Theater_Ticket_Agnea_2.png" />
+    <None Remove="Images\NPCs\Worker_Inventor_Clockbank.png" />
+    <None Remove="Images\Ochette_Generic.png" />
+    <None Remove="Images\Osvald\Black_Crystal.png" />
+    <None Remove="Images\Osvald_Generic.png" />
+    <None Remove="Images\Partitio_Generic.png" />
+    <None Remove="Images\Scholar_Maerchant.png" />
+    <None Remove="Images\Temenos\Kaldenas_Notebook.png" />
+    <None Remove="Images\Temenos\Mysterious_Notebook.png" />
+    <None Remove="Images\Temenos_Generic.png" />
+    <None Remove="Images\Terra.png" />
+    <None Remove="Images\Throne\Habit.png" />
+    <None Remove="Images\Throne\Horse_Coin.png" />
+    <None Remove="Images\Throne\Masked_Child.png" />
+    <None Remove="Images\Throne_Generic.png" />
+    <None Remove="Images\Weapons\Axe.png" />
+    <None Remove="Images\Weapons\Bow.png" />
+    <None Remove="Images\Weapons\Dagger.png" />
+    <None Remove="Images\Weapons\Polearm.png" />
+    <None Remove="Images\Weapons\Staff.png" />
+    <None Remove="Images\Weapons\Sword.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Acta.png" />
+    <Resource Include="Images\Glacis.png" />
+    <Resource Include="Images\Inventor_Items\Beastling_Mythical_Horn.png" />
+    <Resource Include="Images\Inventor_Items\Miner_Natural_Magnetite.png" />
+    <Resource Include="Images\Inventor_Items\Worker_Ancient_Cog.png" />
+    <Resource Include="Images\Inventor_Items\Worker_inventor_clockbank.png" />
+    <Resource Include="Images\NPCs\Islander_Wooden_Sword_Agnea_3.png" />
+    <Resource Include="Images\NPCs\Merchant_NPC_Hikari_3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Crossed_Paths\Apothecary_Hunter.png" />
+    <Resource Include="Images\Agnea_Generic.png" />
+    <Resource Include="Images\Castti_Generic.png" />
+    <Resource Include="Images\Crossed_Paths\Dancer_Warrior.png" />
+    <Resource Include="Images\Hikari_Generic.png" />
+    <Resource Include="Images\Crossed_Paths\Scholar_Merchant.png" />
+    <Resource Include="Images\Jobs\Apothecary.png" />
+    <Resource Include="Images\Jobs\Arcanist.png" />
+    <Resource Include="Images\Jobs\Armsmaster.png" />
+    <Resource Include="Images\Jobs\Cleric.png" />
+    <Resource Include="Images\Jobs\Conjurer.png" />
+    <Resource Include="Images\Jobs\Dancer.png" />
+    <Resource Include="Images\Jobs\Hunter.png" />
+    <Resource Include="Images\Jobs\Inventor.png" />
+    <Resource Include="Images\Jobs\Merchant.png" />
+    <Resource Include="Images\Jobs\Scholar.png" />
+    <Resource Include="Images\Jobs\Thief.png" />
+    <Resource Include="Images\Jobs\Warrior.png" />
+    <Resource Include="Images\NPCs\Old_Man_Cute_Shoes_Agnea_4.png" />
+    <Resource Include="Images\NPCs\Woman_Theater_Ticket_Agnea_2.png" />
+    <Resource Include="Images\NPCs\Worker_Inventor_Clockbank.png" />
+    <Resource Include="Images\Ochette_Generic.png" />
+    <Resource Include="Images\Osvald\Black_Crystal.png" />
+    <Resource Include="Images\Osvald_Generic.png" />
+    <Resource Include="Images\Partitio_Generic.png" />
+    <Resource Include="Images\Temenos\Kaldenas_Notebook.png" />
+    <Resource Include="Images\Temenos\Mysterious_Notebook.png" />
+    <Resource Include="Images\Temenos_Generic.png" />
+    <Resource Include="Images\Crossed_Paths\Cleric_Thief.png" />
+    <Resource Include="Images\Terra.png" />
+    <Resource Include="Images\Throne\Horse_Coin.png" />
+    <Resource Include="Images\Throne\Masked_Child.png" />
+    <Resource Include="Images\Throne\Habit.png" />
+    <Resource Include="Images\Throne_Generic.png" />
+    <Resource Include="Images\Weapons\Axe.png" />
+    <Resource Include="Images\Weapons\Bow.png" />
+    <Resource Include="Images\Weapons\Dagger.png" />
+    <Resource Include="Images\Weapons\Polearm.png" />
+    <Resource Include="Images\Weapons\Staff.png" />
+    <Resource Include="Images\Weapons\Sword.png" />
+  </ItemGroup>
+
+</Project>
