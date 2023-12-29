@@ -19,29 +19,6 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounter"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounter"/>
-                </Grid.ColumnDefinitions>
-                <Image Source="{Binding Path=Image}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MaxHeight="40px" MaxWidth="40px" ToolTip="{Binding Path=Tooltip}"/>
-                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Background="{Binding Path=CheckBackgroundColor}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
-                    <Button.InputBindings>
-                        <MouseBinding Gesture="RightClick" Command="{Binding Path=CheckedDecreaseCommand}" />
-                    </Button.InputBindings>
-                </Button>
-                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Background="{Binding Path=ReceivedBackgroundColor}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
-                    <Button.InputBindings>
-                        <MouseBinding Gesture="RightClick" Command="{Binding Path=ReceivedDecreaseCommand}" />
-                    </Button.InputBindings>
-                </Button>
-            </Grid>
-        </DataTemplate>        
-        <DataTemplate x:Key="KeyItemListBoxCrossedPaths">
-            <Grid ShowGridLines="False">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounterCrossedPaths"/>
                     <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounterCrossedPaths"/>
                 </Grid.ColumnDefinitions>
@@ -82,14 +59,14 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="ParentCategoryTemplate">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"  Margin="0 0 5 0">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="{Binding Path=CategoryName, Mode=OneWay}" HorizontalAlignment="Center">
                         <TextBlock.InputBindings>
                             <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Path=ChangeVisibilityCommand}"/>
                         </TextBlock.InputBindings>
                     </TextBlock>
-                    <ItemsControl Visibility="{Binding Path=Visibility}" ItemsSource="{Binding Path=KeyItems, Mode=OneWay}" ItemTemplate="{StaticResource KeyItemListBoxCrossedPaths}"/>
+                    <ItemsControl Visibility="{Binding Path=Visibility}" ItemsSource="{Binding Path=KeyItems, Mode=OneWay}" ItemTemplate="{StaticResource KeyItemListBox}"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>        
@@ -155,26 +132,9 @@
         </StackPanel>
 
         <!-- Misc. Key Items -->
-        <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" ShowGridLines="False" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Misc. Key Items" HorizontalAlignment="Center" FontSize="18"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Licenses.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Licenses.KeyItems}" ItemsPanel="{StaticResource WrapItemsPanel}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="{Binding RustedWeapons.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding RustedWeapons.KeyItems}" ItemsPanel="{StaticResource HorizontalItemsPanel}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="{Binding InventorItems.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ItemsControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding InventorItems.KeyItems}" ItemsPanel="{StaticResource HorizontalItemsPanel}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
-        </Grid>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <TextBlock Text="Misc. Key Items" HorizontalAlignment="Center" FontSize="18"/>
+            <ItemsControl ItemsSource="{Binding Misc_Key_Items.SubCategories}" ItemTemplate="{StaticResource ParentCategoryTemplateHorizontal}" HorizontalAlignment="Left"/>
+        </StackPanel>
     </Grid>
 </Window>
