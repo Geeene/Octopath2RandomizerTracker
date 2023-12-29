@@ -2,11 +2,13 @@
 using Octopath2RandomizerTracker.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Octopath2RandomizerTracker.ViewModels
 {
@@ -16,6 +18,10 @@ namespace Octopath2RandomizerTracker.ViewModels
         public String Tooltip => _keyItem.Tooltip;
         public int CheckCounter => _keyItem.CheckCounter;
         public int ReceivedCounter => _keyItem.ReceivedCounter;
+
+        public Brush CheckBackgroundColor => DetermineCheckColor();
+        public Brush ReceivedBackgroundColor => DetermineReceivedColor();
+
 
         public ICommand CheckedIncreaseCommand { get; }
         public ICommand CheckedDecreaseCommand { get; }
@@ -30,9 +36,24 @@ namespace Octopath2RandomizerTracker.ViewModels
             ReceivedDecreaseCommand = new ReceivedButtonCommand(this, false);
         }
 
-        public void IncrementCheckCounter() { _keyItem.IncrementCheckCounter(); OnPropertyChanged(nameof(CheckCounter)); }
-        public void IncrementReceivedCounter() { _keyItem.IncrementReceivedCounter(); OnPropertyChanged(nameof(ReceivedCounter)); }
-        public void DecrementCheckCounter() { _keyItem.DecrementCheckCounter(); OnPropertyChanged(nameof(CheckCounter)); }
-        public void DecrementReceivedCounter() { _keyItem.DecrementReceivedCounter(); OnPropertyChanged(nameof(ReceivedCounter)); }
+        public void IncrementCheckCounter() { _keyItem.IncrementCheckCounter(); DetermineCheckColor(); OnPropertyChanged(nameof(CheckCounter)); OnPropertyChanged(nameof(CheckBackgroundColor)); }
+        public void IncrementReceivedCounter() { _keyItem.IncrementReceivedCounter(); DetermineReceivedColor(); OnPropertyChanged(nameof(ReceivedCounter)); OnPropertyChanged(nameof(ReceivedBackgroundColor)); }
+        public void DecrementCheckCounter() { _keyItem.DecrementCheckCounter(); DetermineCheckColor(); OnPropertyChanged(nameof(CheckCounter)); OnPropertyChanged(nameof(CheckBackgroundColor)); }
+        public void DecrementReceivedCounter() { _keyItem.DecrementReceivedCounter(); DetermineReceivedColor(); OnPropertyChanged(nameof(ReceivedCounter)); OnPropertyChanged(nameof(ReceivedBackgroundColor)); }
+
+
+        private Brush DetermineCheckColor() {
+            bool value = _keyItem.CheckCounter == _keyItem.MaximumCounterValue;
+            if (value){ return Brushes.LightGreen; }
+            else if (_keyItem.CheckCounter > 0) { return Brushes.Yellow; }
+            return Brushes.Transparent;
+        }
+
+        private Brush DetermineReceivedColor() {
+            bool value = _keyItem.ReceivedCounter == _keyItem.MaximumCounterValue;
+            if (value) { return Brushes.LightGreen; }
+            else if (_keyItem.ReceivedCounter > 0) { return Brushes.Yellow; }
+            return Brushes.Transparent;
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace Octopath2RandomizerTracker.ViewModels
             _category = category;
             _keyItems = [.. _category.keyItems.Select(keyItem => new KeyItemViewModel(keyItem)).ToList()];
         }
+
+        public void AddKeyItem(KeyItem keyItem) { 
+            _category.keyItems.Add(keyItem);
+            _keyItems.Add(new(keyItem));
+        }
     }
 }

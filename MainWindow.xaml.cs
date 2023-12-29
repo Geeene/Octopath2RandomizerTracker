@@ -24,6 +24,7 @@ namespace Octopath2RandomizerTracker
         public MainWindow()
         {
             InitializeComponent();
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/Octopath2RandomizerTracker;component/Images/Icon.png"));
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e) { 

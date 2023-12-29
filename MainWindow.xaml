@@ -21,12 +21,12 @@
                     <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounter"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Path=Image}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MaxHeight="40px" MaxWidth="40px" ToolTip="{Binding Path=Tooltip}"/>
-                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Background="{Binding Path=CheckBackgroundColor}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=CheckedDecreaseCommand}" />
                     </Button.InputBindings>
                 </Button>
-                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Background="{Binding Path=ReceivedBackgroundColor}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=ReceivedDecreaseCommand}" />
                     </Button.InputBindings>
@@ -44,12 +44,12 @@
                     <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounterCrossedPaths"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Path=Image}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MaxHeight="40px" MaxWidth="80px" ToolTip="{Binding Path=Tooltip}"/>
-                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Background="{Binding Path=CheckBackgroundColor}"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=CheckedDecreaseCommand}" />
                     </Button.InputBindings>
                 </Button>
-                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Background="{Binding Path=ReceivedBackgroundColor}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=ReceivedDecreaseCommand}" />
                     </Button.InputBindings>
@@ -67,18 +67,21 @@
                     <ColumnDefinition Width="auto" SharedSizeGroup="keyItemCounter"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Path=Image}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MaxHeight="40px" MaxWidth="40px" ToolTip="{Binding Path=Tooltip}"/>
-                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=CheckCounter}" Command="{Binding Path=CheckedIncreaseCommand}" Background="{Binding Path=CheckBackgroundColor}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=CheckedDecreaseCommand}" />
                     </Button.InputBindings>
                 </Button>
-                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+                <Button Content="{Binding Path=ReceivedCounter}" Command="{Binding Path=ReceivedIncreaseCommand}" Background="{Binding Path=ReceivedBackgroundColor}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
                     <Button.InputBindings>
                         <MouseBinding Gesture="RightClick" Command="{Binding Path=ReceivedDecreaseCommand}" />
                     </Button.InputBindings>
                 </Button>
             </Grid>
         </DataTemplate>
+        <ItemsPanelTemplate x:Key="test">
+            <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
     </Window.Resources>
     
     <!-- Start of the atual Screen layout -->
@@ -114,7 +117,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Story" HorizontalAlignment="Center" Grid.ColumnSpan="8"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Story" HorizontalAlignment="Center" Grid.ColumnSpan="8" FontSize="24"/>
             
             <!-- All the Main Stories -->
 
@@ -136,7 +139,6 @@
             <ItemsControl Grid.Row="2" Grid.Column="7" ItemsSource="{Binding Hikari.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
             
             <!-- Start of the Crossed Paths -->
-
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding HunterApothecary.CategoryName, Mode=OneWay}" HorizontalAlignment="Center"/>
             <ItemsControl Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding HunterApothecary.KeyItems}" ItemTemplate="{StaticResource KeyItemListBoxCrossedPaths}"/>
             <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Content="{Binding ThiefCleric.CategoryName, Mode=OneWay}" HorizontalAlignment="Center"/>
@@ -146,13 +148,9 @@
             <Label Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Content="{Binding DancerWarrior.CategoryName, Mode=OneWay}" HorizontalAlignment="Center"/>
             <ItemsControl Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" ItemsSource="{Binding DancerWarrior.KeyItems}" ItemTemplate="{StaticResource KeyItemListBoxCrossedPaths}"/>
         </Grid>
+        
         <Grid Grid.Column="1" Grid.Row="0" ShowGridLines="False">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
-                <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
                 <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
                 <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
                 <ColumnDefinition Width="auto" SharedSizeGroup="universal"/>
@@ -163,29 +161,83 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>            
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Sidestory Key Items" HorizontalAlignment="Center" Grid.ColumnSpan="8"/>
-
             <!-- All the Side Stories-->
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding SideStoriesLeaflands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="0" ItemsSource="{Binding SideStoriesLeaflands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SideStoriesBrightlands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center"/>
-            <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SideStoriesBrightlands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="2" Content="{Binding SideStoriesCrestlands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center"/>
-            <ItemsControl Grid.Row="2" Grid.Column="2" ItemsSource="{Binding SideStoriesCrestlands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="3" Content="{Binding SideStoriesWildlands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="3" ItemsSource="{Binding SideStoriesWildlands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="4" Content="{Binding SideStoriesTotohaha.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="4" ItemsSource="{Binding SideStoriesTotohaha.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="5" Content="{Binding SideStoriesWinterlands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SideStoriesWinterlands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="6" Content="{Binding SideStoriesHinoeuma.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="6" ItemsSource="{Binding SideStoriesHinoeuma.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="7" Content="{Binding SideStoriesHarborlands.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="7" ItemsSource="{Binding SideStoriesHarborlands.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
-            <Label Grid.Row="1" Grid.Column="8" Content="{Binding SideStoriesSunderingSea.CategoryName, Mode=OneWay}" HorizontalAlignment="Center" />
-            <ItemsControl Grid.Row="2" Grid.Column="8" ItemsSource="{Binding SideStoriesSunderingSea.KeyItems}" ItemTemplate="{StaticResource KeyItemListBox}"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Side Stories" HorizontalAlignment="Center" Grid.ColumnSpan="8" FontSize="24"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding SideStoryCropdale.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="2" Grid.Column="0" ItemsSource="{Binding SideStoryCropdale.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="{Binding SideStoryNewDelsta.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="4" Grid.Column="0" ItemsSource="{Binding SideStoryNewDelsta.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="{Binding SideStoryFlamechurch.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="6" Grid.Column="0" ItemsSource="{Binding SideStoryFlamechurch.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="{Binding SideStoryOresrush.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="8" Grid.Column="0" ItemsSource="{Binding SideStoryOresrush.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="9" Grid.Column="0" Content="{Binding SideStoryBeastingBay.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="10" Grid.Column="0" ItemsSource="{Binding SideStoryBeastingBay.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="11" Grid.Column="0" Content="{Binding SideStoryCapeCold.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="12" Grid.Column="0" ItemsSource="{Binding SideStoryCapeCold.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="13" Grid.Column="0" Content="{Binding SideStorySai.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="14" Grid.Column="0" ItemsSource="{Binding SideStorySai.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="15" Grid.Column="0" Content="{Binding SideStoryCanalbrine.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="16" Grid.Column="0" ItemsSource="{Binding SideStoryCanalbrine.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+
+
+            <!-- Region Sidestory Subarea 2 -->
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SideStoryWellgrove.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SideStoryWellgrove.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding SideStoryAbandonedVillage.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="4" Grid.Column="1" ItemsSource="{Binding SideStoryAbandonedVillage.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding SideStoryClericGuild.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="6" Grid.Column="1" ItemsSource="{Binding SideStoryClericGuild.KeyItems}"  ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding SideStoryCrackridge.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="8" Grid.Column="1" ItemsSource="{Binding SideStoryCrackridge.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding SideStoryBeastingVillage.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="10" Grid.Column="1" ItemsSource="{Binding SideStoryBeastingVillage.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="11" Grid.Column="1" Content="{Binding SideStoryWinterbloom.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="12" Grid.Column="1" ItemsSource="{Binding SideStoryWinterbloom.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="13" Grid.Column="1" Content="{Binding SideStoryKu.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="14" Grid.Column="1" ItemsSource="{Binding SideStoryKu.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="15" Grid.Column="1" Content="{Binding SideStoryLighthouseIsland.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="16" Grid.Column="1" ItemsSource="{Binding SideStoryLighthouseIsland.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+
+            
+            <!-- Region Sidestory Subarea 3 -->
+            <Label Grid.Row="1" Grid.Column="2" Content="{Binding SideStoryTimberain.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="2" Grid.Column="2" ItemsSource="{Binding SideStoryTimberain.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="2" Content="{Binding SideStorySunkenMaw.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="4" Grid.Column="2" ItemsSource="{Binding SideStorySunkenMaw.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="5" Grid.Column="2" Content="{Binding SideStoryMontwise.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="6" Grid.Column="2" ItemsSource="{Binding SideStoryMontwise.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="7" Grid.Column="2" Content="{Binding SideStoryGravell.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="8" Grid.Column="2" ItemsSource="{Binding SideStoryGravell.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="9" Grid.Column="2" Content="{Binding SideStoryTropuhopu.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="10" Grid.Column="2" ItemsSource="{Binding SideStoryTropuhopu.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="11" Grid.Column="2" Content="{Binding SideStoryStormhail.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="12" Grid.Column="2" ItemsSource="{Binding SideStoryStormhail.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="15" Grid.Column="2" Content="{Binding SideStoryNamelessIsle.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="16" Grid.Column="2" ItemsSource="{Binding SideStoryNamelessIsle.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+
+                
+            <!-- Region Sidestory Subarea 4 -->    
+            <Label Grid.Row="5" Grid.Column="3" Content="{Binding SideStoryMerryHills.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
+            <ItemsControl Grid.Row="6" Grid.Column="3" ItemsSource="{Binding SideStoryMerryHills.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="15" Grid.Column="3" Content="{Binding SideStoryGaldera.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" />
+            <ItemsControl Grid.Row="16" Grid.Column="3" ItemsSource="{Binding SideStoryGaldera.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1" ShowGridLines="False" VerticalAlignment="Top">
@@ -204,30 +256,12 @@
             <!-- Misc. Key Items -->
 
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Misc. Key Items" HorizontalAlignment="Center" FontSize="24"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Licenses.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
-            <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Licenses.KeyItems}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            <Label Grid.Row="2" Grid.Column="0" Content="{Binding RustedWeapons.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
-            <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding RustedWeapons.KeyItems}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            <Label Grid.Row="3" Grid.Column="0" Content="{Binding InventorItems.CategoryName, Mode=OneWay}" HorizontalAlignment="Left"/>
-            <ItemsControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding InventorItems.KeyItems}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>                
-            </ItemsControl>
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Licenses.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Licenses.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="{Binding RustedWeapons.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding RustedWeapons.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="{Binding InventorItems.CategoryName, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ItemsControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding InventorItems.KeyItems}" ItemsPanel="{StaticResource test}" ItemTemplate="{StaticResource KeyItemListBoxHorizontal}" HorizontalAlignment="Left"/>
         </Grid>
     </Grid>
 </Window>
