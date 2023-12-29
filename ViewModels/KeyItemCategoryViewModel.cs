@@ -1,4 +1,5 @@
-﻿using Octopath2RandomizerTracker.Models;
+﻿using Octopath2RandomizerTracker.Commands;
+using Octopath2RandomizerTracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Octopath2RandomizerTracker.ViewModels
 {
@@ -19,11 +21,13 @@ namespace Octopath2RandomizerTracker.ViewModels
         private readonly BindingList<KeyItemViewModel> _keyItems;
 
         public IEnumerable<KeyItemViewModel> KeyItems => _keyItems;
+        public ICommand ChangeVisibilityCommand { get; }
 
         public KeyItemCategoryViewModel(KeyItemCategory category)
         {
             _category = category;
             _keyItems = [.. _category.keyItems.Select(keyItem => new KeyItemViewModel(keyItem)).ToList()];
+            ChangeVisibilityCommand = new ChangeVisibilityCommand(this);
         }
 
         public void AddKeyItem(KeyItem keyItem) { 

@@ -16,8 +16,8 @@ namespace Octopath2RandomizerTracker.ViewModels
         private readonly KeyItem _keyItem;
         public String Image => _keyItem.Image;
         public String Tooltip => _keyItem.Tooltip;
-        public int CheckCounter => _keyItem.CheckCounter;
-        public int ReceivedCounter => _keyItem.ReceivedCounter;
+        public String CheckCounter => _keyItem.CheckRepresentation();
+        public String ReceivedCounter => _keyItem.ReceivedRepresentation();
 
         public Brush CheckBackgroundColor => DetermineCheckColor();
         public Brush ReceivedBackgroundColor => DetermineReceivedColor();
@@ -42,15 +42,15 @@ namespace Octopath2RandomizerTracker.ViewModels
         public void DecrementReceivedCounter() { _keyItem.DecrementReceivedCounter(); DetermineReceivedColor(); OnPropertyChanged(nameof(ReceivedCounter)); OnPropertyChanged(nameof(ReceivedBackgroundColor)); }
 
 
-        private Brush DetermineCheckColor() {
-            bool value = _keyItem.CheckCounter == _keyItem.MaximumCounterValue;
-            if (value){ return Brushes.LightGreen; }
+        private SolidColorBrush DetermineCheckColor() {
+            bool value = _keyItem.CheckCounter == _keyItem.MaximumCounterValueChecks;
+            if (value && _keyItem.MaximumCounterValueChecks != 0 ){ return Brushes.LightGreen; }
             else if (_keyItem.CheckCounter > 0) { return Brushes.Yellow; }
             return Brushes.Transparent;
         }
 
-        private Brush DetermineReceivedColor() {
-            bool value = _keyItem.ReceivedCounter == _keyItem.MaximumCounterValue;
+        private SolidColorBrush DetermineReceivedColor() {
+            bool value = _keyItem.ReceivedCounter == _keyItem.MaximumCounterValueReceived;
             if (value) { return Brushes.LightGreen; }
             else if (_keyItem.ReceivedCounter > 0) { return Brushes.Yellow; }
             return Brushes.Transparent;

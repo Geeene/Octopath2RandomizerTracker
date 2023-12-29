@@ -17,6 +17,7 @@
     <None Remove="Images\Agnea\Chapter_5.png" />
     <None Remove="Images\Agnea_Generic.png" />
     <None Remove="Images\Apothecary_Hunter.png" />
+    <None Remove="Images\Castti\Castti_Generic.png" />
     <None Remove="Images\Castti\Chapter_2_Sai.png" />
     <None Remove="Images\Castti\Chapter_2_Winterbloom.png" />
     <None Remove="Images\Castti\Chapter_3.png" />
@@ -30,6 +31,7 @@
     <None Remove="Images\Hikari\Chapter_3.png" />
     <None Remove="Images\Hikari\Chapter_4.png" />
     <None Remove="Images\Hikari\Chapter_5.png" />
+    <None Remove="Images\Hikari\Hikari_Generic.png" />
     <None Remove="Images\Icon.png" />
     <None Remove="Images\Inventor_Items\Beastling_Mythical_Horn.png" />
     <None Remove="Images\Inventor_Items\Miner_Natural_Magnetite.png" />
@@ -51,6 +53,7 @@
     <None Remove="Images\Ochette\Chapter_2_Glacis.png" />
     <None Remove="Images\Ochette\Chapter_2_Terra.png" />
     <None Remove="Images\Ochette\Chapter_3.png" />
+    <None Remove="Images\Ochette\Ochette_Generic.png" />
     <None Remove="Images\Osvald\Black_Crystal.png" />
     <None Remove="Images\Osvald\Chapter_3.png" />
     <None Remove="Images\Osvald\Chapter_4.png" />
@@ -84,6 +87,11 @@
     <None Remove="Images\Side_Stories\Sturdy_Pickaxe.png" />
     <None Remove="Images\Side_Stories\Treasured_Necklace.png" />
     <None Remove="Images\Side_Stories\Worker_Inventor_Clockbank.png" />
+    <None Remove="Images\Skill_Icons\Buff.png" />
+    <None Remove="Images\Skill_Icons\Debuff.png" />
+    <None Remove="Images\Skill_Icons\Elemental_Attack.png" />
+    <None Remove="Images\Skill_Icons\Physical_Attack.png" />
+    <None Remove="Images\Skill_Icons\Recovery.png" />
     <None Remove="Images\Temenos\Chapter_2.png" />
     <None Remove="Images\Temenos\Chapter_3_Crackridge.png" />
     <None Remove="Images\Temenos\Chapter_3_Stormhail.png" />
@@ -120,7 +128,9 @@
     <Resource Include="Images\Agnea\Chapter_3.png" />
     <Resource Include="Images\Agnea\Chapter_4.png" />
     <Resource Include="Images\Agnea\Chapter_5.png" />
+    <Resource Include="Images\Castti\Castti_Generic.png" />
     <Resource Include="Images\Crossed_Paths\Apothecary_Hunter_1.png" />
+    <Resource Include="Images\Hikari\Hikari_Generic.png" />
     <Resource Include="Images\Icon.png" />
     <Resource Include="Images\Ochette\Acta.png" />
     <Resource Include="Images\Castti\Chapter_2_Sai.png" />
@@ -164,6 +174,7 @@
     <Resource Include="Images\Jobs\Warrior.png" />
     <Resource Include="Images\Agnea\Old_Man_Cute_Shoes_Agnea_4.png" />
     <Resource Include="Images\Agnea\Woman_Theater_Ticket_Agnea_2.png" />
+    <Resource Include="Images\Ochette\Ochette_Generic.png" />
     <Resource Include="Images\Osvald\Black_Crystal.png" />
     <Resource Include="Images\Osvald\Chapter_3.png" />
     <Resource Include="Images\Osvald\Chapter_4.png" />
@@ -194,6 +205,11 @@
     <Resource Include="Images\Side_Stories\Sturdy_Pickaxe.png" />
     <Resource Include="Images\Side_Stories\Treasured_Necklace.png" />
     <Resource Include="Images\Side_Stories\Worker_Inventor_Clockbank.png" />
+    <Resource Include="Images\Skill_Icons\Buff.png" />
+    <Resource Include="Images\Skill_Icons\Debuff.png" />
+    <Resource Include="Images\Skill_Icons\Elemental_Attack.png" />
+    <Resource Include="Images\Skill_Icons\Physical_Attack.png" />
+    <Resource Include="Images\Skill_Icons\Recovery.png" />
     <Resource Include="Images\Temenos\Chapter_2.png" />
     <Resource Include="Images\Temenos\Chapter_3_Crackridge.png" />
     <Resource Include="Images\Temenos\Chapter_3_Stormhail.png" />
