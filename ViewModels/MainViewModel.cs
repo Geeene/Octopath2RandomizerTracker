@@ -12,7 +12,7 @@ using System.Windows.Input;
 namespace Octopath2RandomizerTracker.ViewModels
 {
     public class MainViewModel : ViewModelBase {
-        
+
         private readonly ParentKeyItemCategoryViewModel _Story;
         private readonly ParentKeyItemCategoryViewModel _CrossedPaths;
         private readonly ParentKeyItemCategoryViewModel _Characters;
@@ -25,6 +25,9 @@ namespace Octopath2RandomizerTracker.ViewModels
         public ParentKeyItemCategoryViewModel Side_Stories => _SideStories;
         public ParentKeyItemCategoryViewModel Main_Story => _MainStory;
         public ParentKeyItemCategoryViewModel Misc_Key_Items => _MiscKeyItems;
+
+        private KeyItemViewModel _CurrentlyEditedKeyItem { get; set;}
+        public KeyItemViewModel CurrentlyEditedKeyItem => _CurrentlyEditedKeyItem;
 
 
         public MainViewModel()
@@ -98,12 +101,12 @@ namespace Octopath2RandomizerTracker.ViewModels
             // Ochette Key Items
             KeyItemCategory ochette = new("Ochette");
             ochette.AddKeyItem(new("Images/Ochette/Chapter_2_Cateracta.png", "Ochette Chapter 2 Cateracta"));
-            ochette.AddKeyItem(new("Images/Ochette/Acta.png", "Obtained Acta", 0, 1));
             ochette.AddKeyItem(new("Images/Ochette/Chapter_2_Terra.png", "Ochette Chapter 2 Terra"));
-            ochette.AddKeyItem(new("Images/Ochette/Terra.png", "Obtained Terra", 0, 1));
             ochette.AddKeyItem(new("Images/Ochette/Chapter_2_Glacis.png", "Ochette Chapter 2 Glacis"));
-            ochette.AddKeyItem(new("Images/Ochette/Glacis.png", "Obtained Glacis", 0, 1));
             ochette.AddKeyItem(new("Images/Ochette/Chapter_3.png", "Ochette Chapter 3"));
+            ochette.AddKeyItem(new("Images/Ochette/Acta.png", "Obtained Acta", 0, 1));
+            ochette.AddKeyItem(new("Images/Ochette/Terra.png", "Obtained Terra", 0, 1));
+            ochette.AddKeyItem(new("Images/Ochette/Glacis.png", "Obtained Glacis", 0, 1));
             model.AddSubcategory(new(ochette));
 
             // Castti Key Items
@@ -144,7 +147,7 @@ namespace Octopath2RandomizerTracker.ViewModels
             partitio.AddKeyItem(new("Images/Partitio/Chapter_2.png", "Partitio Chapter 2"));
             partitio.AddKeyItem(new("Images/Partitio/Clockite.png", "Clockite"));
             partitio.AddKeyItem(new("Images/Partitio/Chapter_3.png", "Partitio Chapter 3"));
-            partitio.AddKeyItem(new("Images/Partitio/SOC_Terry.png", "The Grand Terry", 1, 2));
+            partitio.AddKeyItem(new("Images/Partitio/Boat.png", "The Grand Terry", 1, 2));
             partitio.AddKeyItem(new("Images/Partitio/SOC_Grammophone.png", "Grammophone", 1, 2));
             partitio.AddKeyItem(new("Images/Partitio/SOC_Merchantile_Manuscript_Key.png", "Merchantile Manuscript Key", 1, 2));
             partitio.AddKeyItem(new("Images/Partitio/Chapter_4.png", "Partitio Chapter 4"));
@@ -162,9 +165,9 @@ namespace Octopath2RandomizerTracker.ViewModels
             // Agnea Key Items
             KeyItemCategory agnea = new("Agnea");
             agnea.AddKeyItem(new("Images/Agnea/Chapter_2.png", "Agnea Chapter 2"));
-            agnea.AddKeyItem(new("Images/Agnea/Woman_Theater_Ticket_Agnea_2.png", "Theater Ticket"));
+            agnea.AddKeyItem(new("Images/Agnea/Theater_Ticket.png", "Theater Ticket"));
             agnea.AddKeyItem(new("Images/Agnea/Chapter_3.png", "Agnea Chapter 3"));
-            agnea.AddKeyItem(new("Images/Agnea/Islander_Wooden_Sword_Agnea_3.png", "Wooden Sword"));
+            agnea.AddKeyItem(new("Images/Agnea/Wooden_Sword.png", "Wooden Sword"));
             agnea.AddKeyItem(new("Images/Agnea/Chapter_4.png", "Agnea Chapter 4"));
             agnea.AddKeyItem(new("Images/Agnea/Old_Man_Cute_Shoes_Agnea_4.png", "Cute Shoes"));
             agnea.AddKeyItem(new("Images/Agnea/Chapter_5.png", "Agnea Chapter 5"));
@@ -190,23 +193,23 @@ namespace Octopath2RandomizerTracker.ViewModels
             // Key Items Apothecary & Hunter Crossed Path
             KeyItemCategory apothecaryHunter = new("Apothecary & Hunter");
             apothecaryHunter.AddKeyItem(new("Images/Crossed_Paths/Apothecary_Hunter_1.png", "Apothecary & Hunter 1"));
-            apothecaryHunter.AddKeyItem(new("Images/Crossed_Paths/Apothecary_Hunter.png", "Apothecary & Hunter 2"));
+            apothecaryHunter.AddKeyItem(new("Images/Crossed_Paths/Apothecary_Hunter_2.png", "Apothecary & Hunter 2"));
             model.AddSubcategory(new(apothecaryHunter));
 
             // Key Items Cleric & Thief Crossed Path
             KeyItemCategory clericThief = new("Cleric & Thief");
-            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief.png", "Cleric & Thief 1"));
+            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief_1.png", "Cleric & Thief 1"));
             clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief.png", "Cloudy Mirror Fragment", 0, 1));
-            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief.png", "Cleric & Thief 2"));
-            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief.png", "Folded Paper"));
-            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief.png", "Cloudy Mirror", 0, 1));
+            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cleric_Thief_2.png", "Cleric & Thief 2"));
+            clericThief.AddKeyItem(new("Images/Crossed_Paths/Folded_Paper.png", "Folded Paper"));
+            clericThief.AddKeyItem(new("Images/Crossed_Paths/Cloudy_Mirror.png", "Cloudy Mirror", 0, 1));
             model.AddSubcategory(new(clericThief));
 
             // Key Items Scholar & Merchant Crossed Path
             KeyItemCategory scholarMerchant = new("Scholar & Merchant");
-            scholarMerchant.AddKeyItem(new("Images/Crossed_Paths/Scholar_Merchant.png", "Scholar & Merchant 1"));
+            scholarMerchant.AddKeyItem(new("Images/Crossed_Paths/Scholar_Merchant_1.png", "Scholar & Merchant 1"));
             scholarMerchant.AddKeyItem(new("Images/Crossed_Paths/Scholar_Merchant.png", "Mirror, Precision Lense, and Metalworking Tool", 1, 3));
-            scholarMerchant.AddKeyItem(new("Images/Crossed_Paths/Scholar_Merchant.png", "Scholar & Merchant 2"));
+            scholarMerchant.AddKeyItem(new("Images/Crossed_Paths/Scholar_Merchant_2.png", "Scholar & Merchant 2"));
             model.AddSubcategory(new(scholarMerchant));
 
             // Dancer & Warrior
@@ -258,9 +261,9 @@ namespace Octopath2RandomizerTracker.ViewModels
             ParentKeyItemCategoryViewModel miscSidestories = new("Misc. Sidestories");
             
             KeyItemCategory sideStoryCropdale = new("Cropdale");
-            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Useless Fruit: Well Iris Uses"));
-            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Goading the Grapes: Tricks to Growing Grapes"));
-            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Crop Revival: Crop Tapestry Pattern"));
+            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Well_Iris.png", "Useless Fruit: Well Iris Uses"));
+            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Grapes_Growing_Tricks.png", "Goading the Grapes: Tricks to Growing Grapes"));
+            sideStoryCropdale.AddKeyItem(new("Images/Side_Stories/Crop_Tapestry.png", "Crop Revival: Crop Tapestry Pattern"));
             leaflands.AddSubcategory(new(sideStoryCropdale));
 
             KeyItemCategory sideStoryWellgrove = new("Wellgrove");
@@ -289,9 +292,9 @@ namespace Octopath2RandomizerTracker.ViewModels
             wildlands.AddSubcategory(new(sideStoryGravell));
 
             KeyItemCategory sideStoryNewDelsta = new("New Delsta");
-            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "A Young Girl's Wish: Deluxe Crêpe"));
-            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "A Gambling Man: Truth of the Game Parlor"));
-            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Proof of Justice: A Killer's Motive"));
+            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Deluxe_Crepe.png", "A Young Girl's Wish: Deluxe Crêpe"));
+            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Truth_Of_The_Game_Parlor.png", "A Gambling Man: Truth of the Game Parlor"));
+            sideStoryNewDelsta.AddKeyItem(new("Images/Side_Stories/Killers_Motive.png", "Proof of Justice: A Killer's Motive"));
             brightlands.AddSubcategory(new(sideStoryNewDelsta));
 
             KeyItemCategory sideStoryAbandonedVillage = new("Abandoned Village");
@@ -305,11 +308,11 @@ namespace Octopath2RandomizerTracker.ViewModels
 
             KeyItemCategory sideStoryFlamechurch = new("Flamechurch");
             sideStoryFlamechurch.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Shirlutto's Next Chapter: Paper Play"));
-            sideStoryFlamechurch.AddKeyItem(new("Images/Side_Stories/Pilgrims_Torches.png", "Pilgrim Protection: 3 Sacred Flame Candles", 1, 3));
+            sideStoryFlamechurch.AddKeyItem(new(["Images/Side_Stories/Pilgrims_Torches.png", "Images/Side_Stories/Worker_Inventor_Clockbank.png", "Images/Side_Stories/Worker_Inventor_Clockbank.png"], "Pilgrim Protection: 3 Sacred Flame Candles", 1, 3));
             crestlands.AddSubcategory(new(sideStoryFlamechurch));
 
             KeyItemCategory sideStoryClericGuild = new("Cleric Guild");
-            sideStoryClericGuild.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "A Young Girl's Wish: Adventures of an Apprentice Cleric’s Sequel"));
+            sideStoryClericGuild.AddKeyItem(new("Images/Side_Stories/Apprentice_Cleric.png", "A Young Girl's Wish: Adventures of an Apprentice Cleric’s Sequel"));
             crestlands.AddSubcategory(new(sideStoryClericGuild));
 
             KeyItemCategory sideStoryMontwise = new("Montwise");
@@ -320,6 +323,7 @@ namespace Octopath2RandomizerTracker.ViewModels
             KeyItemCategory sideStoryMerryHills = new("Merry Hills");
             sideStoryMerryHills.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "A Mysterious Box: Mysterious Box"));
             crestlands.AddSubcategory(new(sideStoryMerryHills));
+
 
             KeyItemCategory sideStoryBeastingBay = new("Beasting Bay");
             sideStoryBeastingBay.AddKeyItem(new("Images/Side_Stories/Bottle_Of_White_Dust.png", "Traveler's Lost and Found: Bottle of White Powder"));
@@ -358,13 +362,13 @@ namespace Octopath2RandomizerTracker.ViewModels
             hinoeuma.AddSubcategory(new(sideStoryKu));
 
             KeyItemCategory sideStoryCanalbrine = new("Canalbrine");
-            sideStoryCanalbrine.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "The Treasures of Ku: Dragon Vase"));
-            sideStoryCanalbrine.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Plans from a Ruined Nation: Fort Orochi Plans"));
+            sideStoryCanalbrine.AddKeyItem(new("Images/Side_Stories/Dragon_Vase.png", "The Treasures of Ku: Dragon Vase"));
+            sideStoryCanalbrine.AddKeyItem(new("Images/Side_Stories/Fort_Orochi_Plans.png", "Plans from a Ruined Nation: Fort Orochi Plans"));
             miscSidestories.AddSubcategory(new(sideStoryCanalbrine));
 
             KeyItemCategory sideStoryLighthouseIsland = new("Lighthouse Island");
-            sideStoryLighthouseIsland.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "The Washed-Up Letter: Message in a Bottle"));
-            sideStoryLighthouseIsland.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Lighthouse Restoration: Aelmorite Reflector"));
+            sideStoryLighthouseIsland.AddKeyItem(new("Images/Side_Stories/Letter_Bottle.png", "The Washed-Up Letter: Message in a Bottle"));
+            sideStoryLighthouseIsland.AddKeyItem(new("Images/Side_Stories/Aelmorite_Reflector.png", "Lighthouse Restoration: Aelmorite Reflector"));
             miscSidestories.AddSubcategory(new(sideStoryLighthouseIsland));
 
 
@@ -385,6 +389,7 @@ namespace Octopath2RandomizerTracker.ViewModels
             model.AddSubcategory(InitializeLicenses());
             model.AddSubcategory(InitializeRustedWeapons());
             model.AddSubcategory(InitializeInventorItems());
+            model.AddSubcategory(InitializeLocationLocks());
             return model;
         }
         private static KeyItemCategoryViewModel InitializeLicenses() {
@@ -407,7 +412,7 @@ namespace Octopath2RandomizerTracker.ViewModels
         private static KeyItemCategoryViewModel InitializeRustedWeapons()
         {
             // Rusted Weapons
-            KeyItemCategory rustedWeapons = new("Rusted\nWeapons");
+            KeyItemCategory rustedWeapons = new("Rusted Weapons");
             rustedWeapons.AddKeyItem(new("Images/Weapons/Sword.png", "Got the Rusty Sword"));
             rustedWeapons.AddKeyItem(new("Images/Weapons/Polearm.png", "Got the Rusty Axe"));
             rustedWeapons.AddKeyItem(new("Images/Weapons/Dagger.png", "Got the Rusty Polearm"));
@@ -420,16 +425,32 @@ namespace Octopath2RandomizerTracker.ViewModels
         private static KeyItemCategoryViewModel InitializeInventorItems()
         {
             // Inventor Items
-            KeyItemCategory inventorItems = new("Inventor\nItems");
+            KeyItemCategory inventorItems = new("Inventor Items");
             inventorItems.AddKeyItem(new("Images/Inventor_Items/Worker_Inventor_Clockbank.png", "Scrap Metal from Clockbank"));
-            inventorItems.AddKeyItem(new("Images/Inventor_Items/Worker_Inventor_Clockbank.png", "Rainbow Glassbottle from Conning Creek"));
+            inventorItems.AddKeyItem(new("Images/Inventor_Items/Rainbow_Glass_Bottle.png", "Rainbow Glassbottle from Conning Creek"));
             inventorItems.AddKeyItem(new("Images/Inventor_Items/Miner_Natural_Magnetite.png", "Natural Magnetite from Mines"));
             inventorItems.AddKeyItem(new("Images/Inventor_Items/Worker_Inventor_Clockbank.png", "Tin Toy from Wellgrove"));
             inventorItems.AddKeyItem(new("Images/Inventor_Items/Worker_Ancient_Cog.png", "Ancient Cog from Roque Island"));
-            inventorItems.AddKeyItem(new("Images/Inventor_Items/Beastling_Mythical_Horn.png", "Mythical Horn from Nameless Village"));
+            inventorItems.AddKeyItem(new("Images/Inventor_Items/Mythical_Horn.png", "Mythical Horn from Nameless Village"));
             return new(inventorItems);
+        }        
+        
+        private static KeyItemCategoryViewModel InitializeLocationLocks()
+        {
+            // Inventor Items
+            KeyItemCategory locationLocks = new("Location Locks");
+            locationLocks.AddKeyItem(new("Images/Location_Locks/New_Delsta_Ferry.png", "New Delsta Ferry"));
+            locationLocks.AddKeyItem(new("Images/Location_Locks/Crackridge_Ferry.png", "Crackridge Ferry"));
+            locationLocks.AddKeyItem(new("Images/Location_Locks/Canalbrine_Ferry.png", "Canalbrine Ferry"));
+            locationLocks.AddKeyItem(new("Images/Location_Locks/Beasting_Bay_Ferry.png", "Beasting Bay Ferry"));
+            locationLocks.AddKeyItem(new("Images/Location_Locks/Northern_Montwise_Pass.png", "Northern Montwise Pass"));
+            return new(locationLocks);
         }
 
+        private void setCurrentlyEditedKeyItem(KeyItemViewModel keyItem) {
+            _CurrentlyEditedKeyItem = keyItem;
+            OnPropertyChanged(nameof(CurrentlyEditedKeyItem));
+        }
     }
 
 }

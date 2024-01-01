@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd ="http://www.galasoft.ch/mvvmlight"
-        Title="Octopath 2 Item Tracker" Height="1000" Width="1280">
+        Title="Octopath 2 Item Tracker" Height="1000" Width="1280" Background="LightGray">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>

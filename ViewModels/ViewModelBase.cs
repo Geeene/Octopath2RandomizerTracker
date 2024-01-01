@@ -27,6 +27,10 @@ namespace Octopath2RandomizerTracker.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Changes the Visibility of the current ViewModelBase. 
+        /// If it is currently Visible, it will be come Hidden and reverse.
+        /// </summary>
         public void ChangeVisibility() {
             if (Visibility == Visibility.Visible) {
                 Visibility = Visibility.Hidden;
