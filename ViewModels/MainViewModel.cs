@@ -214,9 +214,9 @@ namespace Octopath2RandomizerTracker.ViewModels
 
             // Dancer & Warrior
             KeyItemCategory dancerWarrior = new("Dancer & Warrior");
-            dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior.png", "Dancer & Warrior 1"));
+            dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior_1.png", "Dancer & Warrior 1"));
             dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior.png", "Horse Tail"));
-            dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior.png", "Dancer & Warrior 2"));
+            dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior_2.png", "Dancer & Warrior 2"));
             dancerWarrior.AddKeyItem(new("Images/Crossed_Paths/Dancer_Warrior.png", "Dancer's Mask, Sacred Wood, and Wine Offering", 1, 3));
             model.AddSubcategory(new(dancerWarrior));
 
@@ -267,7 +267,7 @@ namespace Octopath2RandomizerTracker.ViewModels
             leaflands.AddSubcategory(new(sideStoryCropdale));
 
             KeyItemCategory sideStoryWellgrove = new("Wellgrove");
-            sideStoryWellgrove.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Misha’s Next Chapter: Man in a Brown Coat, and Garbage Collector", 1, 2));
+            sideStoryWellgrove.AddKeyItem(new("Images/Side_Stories/Misha.png", "Misha’s Next Chapter: Man in a Brown Coat, and Garbage Collector", 1, 2));
             leaflands.AddSubcategory(new(sideStoryWellgrove));
 
             KeyItemCategory sideStoryTimberain = new("Timberain");
@@ -287,8 +287,8 @@ namespace Octopath2RandomizerTracker.ViewModels
             wildlands.AddSubcategory(new(sideStoryCrackridge));
 
             KeyItemCategory sideStoryGravell = new("Gravell");
-            sideStoryGravell.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "The Missing Girl: Cloudy Crystal Bracelet"));
-            sideStoryGravell.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Alpione's Next Chapter: Hunting Request"));
+            sideStoryGravell.AddKeyItem(new("Images/Side_Stories/Crystal_Bracelet.png", "The Missing Girl: Cloudy Crystal Bracelet"));
+            sideStoryGravell.AddKeyItem(new("Images/Side_Stories/Hunting_Request.png", "Alpione's Next Chapter: Hunting Request"));
             wildlands.AddSubcategory(new(sideStoryGravell));
 
             KeyItemCategory sideStoryNewDelsta = new("New Delsta");
@@ -354,7 +354,7 @@ namespace Octopath2RandomizerTracker.ViewModels
 
             KeyItemCategory sideStorySai = new("Sai");
             sideStorySai.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Shirlutto's Next Chapter: Lute"));
-            sideStorySai.AddKeyItem(new("Images/Side_Stories/Worker_Inventor_Clockbank.png", "Veronica's Next Chapter: Dolcinaea and Gifts"));
+            sideStorySai.AddKeyItem(new("Images/Side_Stories/Dolcinaea_and_Gifts.png", "Veronica's Next Chapter: Dolcinaea and Gifts"));
             hinoeuma.AddSubcategory(new(sideStorySai));
 
             KeyItemCategory sideStoryKu = new("Ku");
